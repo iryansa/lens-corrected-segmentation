@@ -1,1 +1,4 @@
 ai_advanced_task.md
+venv/
+venv/*
+.env
