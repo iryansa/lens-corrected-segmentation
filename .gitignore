@@ -4,3 +4,9 @@ venv/*
 .env
 *.docx
 *.pdf
+
+__pycache__/
+.ipynb_checkpoints/
+*.xml
+
+*.db
