@@ -8,8 +8,8 @@ def main():
     # 1. Match the exact structural parameters used to generate your board
     squares_x = 8
     squares_y = 10
-    square_length = 0.02005  # 20.05 mm converted to meters
-    marker_length = 0.01503  # 15.03 mm converted to meters
+    square_length = 0.0200  # 20.05 mm converted to meters
+    marker_length = 0.0150  # 15.03 mm converted to meters
 
     aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_250)
     board = cv2.aruco.CharucoBoard(
@@ -32,6 +32,8 @@ def main():
     image_paths = []
     for ext in image_extensions:
         image_paths.extend(glob.glob(os.path.join("calibration", "images", ext)))
+    # Deduplicate image paths because glob might find the same files on case-insensitive filesystems
+    image_paths = sorted(list(set(os.path.abspath(p) for p in image_paths)))
     
     print(f"Found {len(image_paths)} calibration images to process.")
 
