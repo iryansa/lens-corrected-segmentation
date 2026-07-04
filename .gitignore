@@ -10,3 +10,12 @@ __pycache__/
 *.xml
 
 *.db
+
+# Dataset folders containing large PNG files
+dataset/train/images/
+dataset/train/masks/
+dataset/val/images/
+dataset/val/masks/
+dataset/test/images/
+dataset/test/masks/
+
