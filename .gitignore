@@ -19,3 +19,11 @@ dataset/val/masks/
 dataset/test/images/
 dataset/test/masks/
 
+# Model weights
+models/*.pth
+
+# MLflow run directories
+mlruns/
+
+
+
