@@ -181,7 +181,7 @@ def main():
     annotated = img_undistorted.copy()
     
     # Draw ChArUco corners
-    cv2.aruco.drawDetectedCornersCharuco(annotated, charuco_corners, colors=(255, 0, 0))
+    cv2.aruco.drawDetectedCornersCharuco(annotated, charuco_corners)
 
     # Draw translucent mask
     overlay = annotated.copy()

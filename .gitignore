@@ -25,5 +25,9 @@ models/*.pth
 # MLflow run directories
 mlruns/
 
+# Measurement output images
+measurements/outputs/
+
+
 
 
