@@ -1,4 +1,4 @@
-# XIS Camera Calibration & Metric Measurement Pipeline
+# Camera Calibration & Metric Measurement Pipeline
 
 This repository implements an end-to-end computer vision pipeline that performs intrinsic camera calibration, trains a deep-learning segmentation model, and computes real-world metric measurements in millimeters from pixel coordinates using a calibrated reference object.
 
@@ -31,7 +31,7 @@ graph TD
 The repository is organized according to the assessment specifications:
 
 ```
-xis.ai/
+project-root/
 │
 ├── calibration/             # Calibration images, script, and parameters
 │   ├── images/              # 29 unique raw calibration JPEG shots
