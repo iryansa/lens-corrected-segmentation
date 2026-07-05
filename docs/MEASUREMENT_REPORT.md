@@ -11,17 +11,17 @@ To measure physical dimensions from a 2D image, we must resolve two distortions:
 Instead of a simple static pixel-to-mm ratio, we derived a **dynamic 3D plane unprojection pipeline** using the estimated camera pose relative to the reference ChArUco board:
 
 ### Projective Plane Homography
-Any point on the flat reference plane (where the board and card lie) can be represented in the board's coordinate system as $P_{\text{board}} = (x, y, 0)^T$. 
-Using the camera intrinsic matrix $K$, and the estimated camera pose rotation matrix columns $R_1, R_2$ and translation vector $T$, the mapping from the physical plane coordinates to the undistorted image pixel coordinates $(u, v)$ is defined by a $3 \times 3$ homography matrix $H$:
-$$
-\begin{pmatrix} u \\ v \\ 1 \end{pmatrix} \sim H \begin{pmatrix} x \\ y \\ 1 \end{pmatrix} \quad \text{where} \quad H = K \begin{pmatrix} R_1 & R_2 & T \end{pmatrix}
-$$
+
+Any point on the flat reference plane (where the board and card lie) can be represented in the board's coordinate system as $P_{\text{board}}=(x,y,0)^T$. Using the camera intrinsic matrix $K$, and the estimated camera pose rotation matrix columns $R_1,R_2$ and translation vector $T$, the mapping from the physical plane coordinates to the undistorted image pixel coordinates $(u,v)$ is defined by a $3\times3$ homography matrix $H$:
+
+$$\begin{pmatrix}u\\v\\1\end{pmatrix}\sim H\begin{pmatrix}x\\y\\1\end{pmatrix}\quad\text{where}\quad H=K\begin{pmatrix}R_1&R_2&T\end{pmatrix}$$
 
 ### 3D Unprojection
-By computing the inverse homography $H^{-1}$, we can project any pixel $(u, v)$ in the undistorted image back onto the physical board plane $(x, y)$ in meters:
-$$
-\begin{pmatrix} x \\ y \\ 1 \end{pmatrix} \sim H^{-1} \begin{pmatrix} u \\ v \\ 1 \end{pmatrix}
-$$
+
+By computing the inverse homography $H^{-1}$, we can project any pixel $(u,v)$ in the undistorted image back onto the physical board plane $(x,y)$ in meters:
+
+$$\begin{pmatrix}x\\y\\1\end{pmatrix}\sim H^{-1}\begin{pmatrix}u\\v\\1\end{pmatrix}$$
+
 
 For every pixel belonging to the predicted card mask, we apply this unprojection. The resulting collection of points represents the card's physical shape in the 2D plane of the board.
 
